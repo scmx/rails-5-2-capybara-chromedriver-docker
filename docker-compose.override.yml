@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    environment:
+      DATABASE_PASSWORD: mysecretpassword
+    volumes:
+      - ".:/app"
+    ports:
+      - "3000:3000"
+
+  db:
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword

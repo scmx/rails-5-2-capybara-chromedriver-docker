@@ -1,0 +1,17 @@
+version: "3"
+services:
+  web:
+    build: .
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USERNAME: postgres
+    depends_on:
+      - db
+    networks:
+      - db
+  db:
+    image: postgres:9.6
+    networks:
+      - db
+networks:
+  db:
