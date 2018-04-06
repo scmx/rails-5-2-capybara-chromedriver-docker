@@ -37,3 +37,9 @@ RUN bundle install
 COPY . .
 
 CMD ["rails", "server", "--binding=0.0.0.0", "--pid=/tmp/app.pid"]
+
+RUN useradd -m developer \
+ && chown -R developer:developer $GEM_HOME \
+ && chown -R developer:developer .
+
+USER developer
